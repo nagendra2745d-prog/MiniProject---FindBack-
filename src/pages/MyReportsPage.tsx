@@ -92,6 +92,7 @@ export const MyReportsPage: React.FC = () => {
                   <th className="py-3 px-4">Type</th>
                   <th className="py-3 px-4">Date</th>
                   <th className="py-3 px-4">Status</th>
+                  <th className="py-3 px-4">Reported By / Contact</th>
                   <th className="py-3 px-4 text-right">Action</th>
                 </tr>
               </thead>
@@ -157,6 +158,22 @@ export const MyReportsPage: React.FC = () => {
                       >
                         {item.status}
                       </span>
+                    </td>
+
+                    {/* Reporter / Contact */}
+                    <td className="py-3 px-4">
+                      <div className="text-[11px]">
+                        <div className="font-medium text-slate-800">{item.reportedBy.name}</div>
+                        {item.reportedBy.department && (
+                          <div className="text-slate-400">{item.reportedBy.department}</div>
+                        )}
+                        <a
+                          href={`mailto:${item.reportedBy.email}`}
+                          className="text-blue-600 hover:underline"
+                        >
+                          {item.reportedBy.email}
+                        </a>
+                      </div>
                     </td>
 
                     {/* Action */}
