@@ -43,9 +43,9 @@ interface AppContextType {
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-const STORAGE_KEY_ITEMS = 'campus_lnf_student_items_v10';
-const STORAGE_KEY_CLAIMS = 'campus_lnf_student_claims_v10';
-const STORAGE_KEY_USER = 'campus_lnf_student_user_v10';
+const STORAGE_KEY_ITEMS = 'campus_lnf_student_items_v11';
+const STORAGE_KEY_CLAIMS = 'campus_lnf_student_claims_v11';
+const STORAGE_KEY_USER = 'campus_lnf_student_user_v11';
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [items, setItems] = useState<LostFoundItem[]>(() => {
