@@ -3,10 +3,10 @@ import { useApp } from '../context/AppContext';
 import { ITEM_CATEGORIES, CAMPUS_LOCATIONS } from '../data/initialData';
 import { ItemCategory, ItemType, LostFoundItem } from '../types';
 
-import chargerImg from '../assets/images/lost_laptop_charger_1790874005031.jpg';
-import waterBottleImg from '../assets/images/lost_water_bottle_1790874018368.jpg';
-import keysImg from '../assets/images/lost_student_id_keys_1790874036797.jpg';
-import calcImg from '../assets/images/lost_graphing_calc_1790874049756.jpg';
+const chargerImg = '/images/lost_laptop_charger_1790874005031.jpg';
+const waterBottleImg = '/images/lost_water_bottle_1790874018368.jpg';
+const keysImg = '/images/lost_student_id_keys_1790874036797.jpg';
+const calcImg = '/images/lost_graphing_calc_1790874049756.jpg';
 
 export const ReportPage: React.FC = () => {
   const { addItem, reportPrefillType, setActiveTab, currentUser } = useApp();
