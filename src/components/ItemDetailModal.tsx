@@ -134,6 +134,9 @@ export const ItemDetailModal: React.FC = () => {
               {item.reportedBy.department && (
                 <span className="text-slate-500 ml-1">({item.reportedBy.department})</span>
               )}
+              <a href={`mailto:${item.reportedBy.email}`} className="text-blue-600 hover:underline block mt-0.5">
+                {item.reportedBy.email}
+              </a>
             </div>
           </div>
 
