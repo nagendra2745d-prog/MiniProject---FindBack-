@@ -11,6 +11,14 @@ export type ItemCategory =
   | 'Clothing'
   | 'Other';
 
+export interface FinderInfo {
+  name: string;
+  email: string;
+  phone?: string;
+  note?: string;
+  foundAt?: string;
+}
+
 export interface LostFoundItem {
   id: string;
   title: string;
@@ -27,6 +35,7 @@ export interface LostFoundItem {
     email: string;
     department?: string;
   };
+  finderInfo?: FinderInfo | null;
   createdAt: string;
 }
 

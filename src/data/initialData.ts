@@ -32,6 +32,13 @@ export const INITIAL_ITEMS: LostFoundItem[] = [
         "email": "rahul.s@kamaladevi.edu.in",
         "department": "Computer Science"
     },
+    finderInfo: {
+      name: 'Amit Kumar',
+      email: 'amit.k@kamaladevi.edu.in',
+      phone: '+91 98765 43210',
+      note: 'Found on 2nd floor desk #14. Handed over to Central Library helpdesk librarian Mr. Ramesh.',
+      foundAt: '2026-10-01T10:15:00Z'
+    },
     createdAt: '2026-09-29T14:30:00Z'
   },
   {

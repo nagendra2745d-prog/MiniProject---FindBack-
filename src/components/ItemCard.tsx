@@ -57,6 +57,15 @@ export const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
             </span>
           </div>
         )}
+
+        {/* Found Match badge */}
+        {isLost && item.finderInfo && item.status !== 'resolved' && (
+          <div className="absolute top-2 right-2">
+            <span className="inline-block text-[11px] font-bold px-2 py-0.5 rounded-md bg-emerald-600 text-white shadow-xs">
+              🎉 Found Match
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Body */}

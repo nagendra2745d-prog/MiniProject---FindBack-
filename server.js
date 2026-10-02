@@ -32,6 +32,7 @@ db.exec(`
     imageUrl TEXT,
     status TEXT NOT NULL DEFAULT 'approved',
     reportedBy TEXT,
+    finderInfo TEXT,
     createdAt TEXT NOT NULL
   );
 
@@ -50,6 +51,12 @@ db.exec(`
   );
 `);
 
+try {
+  db.exec('ALTER TABLE items ADD COLUMN finderInfo TEXT;');
+} catch (e) {
+  // column already exists
+}
+
 // Initial Seed Items
 const INITIAL_ITEMS = [
   {
@@ -63,6 +70,7 @@ const INITIAL_ITEMS = [
     imageUrl: '/images/lost_laptop_charger_1790874005031.jpg',
     status: 'approved',
     reportedBy: JSON.stringify({"id":"usr_student","name":"Rahul Sharma","email":"rahul.s@kamaladevi.edu.in","department":"Computer Science"}),
+    finderInfo: JSON.stringify({ name: 'Amit Kumar', email: 'amit.k@kamaladevi.edu.in', phone: '+91 98765 43210', note: 'Found on 2nd floor desk #14. Handed over to Central Library helpdesk librarian Mr. Ramesh.', foundAt: '2026-10-01T10:15:00Z' }),
     createdAt: '2026-09-29T14:30:00Z'
   },
   {
@@ -256,12 +264,17 @@ function seedDatabase() {
   if (count === 0) {
     console.log('[SQLite Database] Seeding database with 15 initial campus items...');
     const insertStmt = db.prepare(`
-      INSERT INTO items (id, title, type, category, description, location, date, imageUrl, status, reportedBy, createdAt)
-      VALUES (@id, @title, @type, @category, @description, @location, @date, @imageUrl, @status, @reportedBy, @createdAt)
+      INSERT INTO items (id, title, type, category, description, location, date, imageUrl, status, reportedBy, finderInfo, createdAt)
+      VALUES (@id, @title, @type, @category, @description, @location, @date, @imageUrl, @status, @reportedBy, @finderInfo, @createdAt)
     `);
 
     const insertMany = db.transaction((items) => {
-      for (const item of items) insertStmt.run(item);
+      for (const item of items) {
+        insertStmt.run({
+          ...item,
+          finderInfo: item.finderInfo || null
+        });
+      }
     });
 
     insertMany(INITIAL_ITEMS);
@@ -281,6 +294,7 @@ app.get('/api/items', (req, res) => {
     const items = rows.map((r) => ({
       ...r,
       reportedBy: r.reportedBy ? JSON.parse(r.reportedBy) : null,
+      finderInfo: r.finderInfo ? JSON.parse(r.finderInfo) : null,
     }));
     res.json({ success: true, count: items.length, items });
   } catch (err) {
@@ -292,7 +306,7 @@ app.get('/api/items', (req, res) => {
 // 2. POST /api/items - Add a new item
 app.post('/api/items', (req, res) => {
   try {
-    const { title, type, category, description, location, date, imageUrl, reportedBy } = req.body;
+    const { title, type, category, description, location, date, imageUrl, reportedBy, finderInfo } = req.body;
     const newItem = {
       id: `item-${Date.now()}`,
       title,
@@ -304,18 +318,20 @@ app.post('/api/items', (req, res) => {
       imageUrl: imageUrl || '',
       status: 'active',
       reportedBy: JSON.stringify(reportedBy || { name: 'Student', email: 'student@college.edu' }),
+      finderInfo: finderInfo ? JSON.stringify(finderInfo) : null,
       createdAt: new Date().toISOString(),
     };
 
     const stmt = db.prepare(`
-      INSERT INTO items (id, title, type, category, description, location, date, imageUrl, status, reportedBy, createdAt)
-      VALUES (@id, @title, @type, @category, @description, @location, @date, @imageUrl, @status, @reportedBy, @createdAt)
+      INSERT INTO items (id, title, type, category, description, location, date, imageUrl, status, reportedBy, finderInfo, createdAt)
+      VALUES (@id, @title, @type, @category, @description, @location, @date, @imageUrl, @status, @reportedBy, @finderInfo, @createdAt)
     `);
     stmt.run(newItem);
 
     const created = {
       ...newItem,
       reportedBy: JSON.parse(newItem.reportedBy),
+      finderInfo: newItem.finderInfo ? JSON.parse(newItem.finderInfo) : null,
     };
     res.status(201).json({ success: true, item: created });
   } catch (err) {
@@ -336,7 +352,7 @@ app.put('/api/items/:id', (req, res) => {
     for (const [key, val] of Object.entries(updates)) {
       if (key !== 'id') {
         fields.push(`${key} = @${key}`);
-        values[key] = key === 'reportedBy' ? JSON.stringify(val) : val;
+        values[key] = (key === 'reportedBy' || key === 'finderInfo') ? (val ? JSON.stringify(val) : null) : val;
       }
     }
 
