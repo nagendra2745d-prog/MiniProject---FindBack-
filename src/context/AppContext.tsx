@@ -134,7 +134,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       reportedBy: {
         id: currentUser ? currentUser.id : `usr_${Date.now()}`,
         name: currentUser ? currentUser.name : 'College Student',
-        email: currentUser ? currentUser.email : 'student@college.edu',
+        email: currentUser ? currentUser.email : 'student@kamaladevi.edu.in',
         department: currentUser ? currentUser.department : 'General Campus',
       },
       createdAt: new Date().toISOString(),
@@ -207,9 +207,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
     const studentUser: User = {
       id: `usr_${cleanUser.toLowerCase().replace(/[^a-z0-9]/g, '_')}`,
-      name: cleanUser === 'student' ? 'Alex Johnson' : cleanUser.charAt(0).toUpperCase() + cleanUser.slice(1),
-      email: `${cleanUser.toLowerCase().replace(/[^a-z0-9]/g, '')}@college.edu`,
-      department: 'College Campus',
+      name: cleanUser === 'student' ? 'Rahul Sharma' : cleanUser.charAt(0).toUpperCase() + cleanUser.slice(1),
+      email: `${cleanUser.toLowerCase().replace(/[^a-z0-9]/g, '')}@kamaladevi.edu.in`,
+      department: 'Computer Science',
     };
 
     setCurrentUser(studentUser);
