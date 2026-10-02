@@ -53,19 +53,7 @@ export const LoginPage: React.FC = () => {
             Use your campus student credentials.
           </p>
 
-          {/* Demo hint */}
-          <div className="mb-5 p-3 bg-amber-50 border border-amber-100 rounded-lg text-xs text-amber-800 flex items-center justify-between gap-3">
-            <span>
-              Demo: <code className="font-mono font-semibold">student</code> / <code className="font-mono font-semibold">student123</code>
-            </span>
-            <button
-              type="button"
-              onClick={() => { setUsername('student'); setPassword('student123'); setErrorMsg(''); }}
-              className="text-[11px] font-semibold text-amber-700 hover:text-amber-900 bg-amber-100 hover:bg-amber-200 px-2 py-0.5 rounded transition-colors cursor-pointer whitespace-nowrap"
-            >
-              Autofill
-            </button>
-          </div>
+
 
           {errorMsg && (
             <div className="mb-5 p-3 bg-red-50 border border-red-100 text-red-700 text-xs rounded-lg">
