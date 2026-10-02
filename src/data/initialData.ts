@@ -1,12 +1,12 @@
 import { LostFoundItem, Claim, User } from '../types';
 
-import chargerImg from '../assets/images/lost_laptop_charger_1790874005031.jpg';
-import waterBottleImg from '../assets/images/lost_water_bottle_1790874018368.jpg';
-import keysImg from '../assets/images/lost_student_id_keys_1790874036797.jpg';
-import calcImg from '../assets/images/lost_graphing_calc_1790874049756.jpg';
-import keyFobImg from '../assets/images/car_key_fob.png';
-import kindleImg from '../assets/images/kindle_ereader.png';
-import hoodieImg from '../assets/images/campus_hoodie.png';
+const chargerImg = '/images/lost_laptop_charger_1790874005031.jpg';
+const waterBottleImg = '/images/lost_water_bottle_1790874018368.jpg';
+const keysImg = '/images/lost_student_id_keys_1790874036797.jpg';
+const calcImg = '/images/lost_graphing_calc_1790874049756.jpg';
+const keyFobImg = '/images/car_key_fob.png';
+const kindleImg = '/images/kindle_ereader.png';
+const hoodieImg = '/images/campus_hoodie.png';
 
 export const INITIAL_USER: User = {
   id: 'usr_student_01',

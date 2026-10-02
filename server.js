@@ -60,7 +60,7 @@ const INITIAL_ITEMS = [
     description: 'Black USB-C fast charger with a slightly coiled thick braided cable. Left on a corner study desk near the second floor silent zone.',
     location: 'Central Library, 2nd Floor',
     date: '2026-09-29',
-    imageUrl: '/src/assets/images/lost_laptop_charger_1790874005031.jpg',
+    imageUrl: '/images/lost_laptop_charger_1790874005031.jpg',
     status: 'approved',
     reportedBy: JSON.stringify({
       id: 'usr_student_01',
@@ -78,7 +78,7 @@ const INITIAL_ITEMS = [
     description: 'Matte dark navy insulated water bottle with a small campus robotics club sticker on the base. Found on table #4.',
     location: 'Campus Cafeteria, Hall B',
     date: '2026-09-30',
-    imageUrl: '/src/assets/images/lost_water_bottle_1790874018368.jpg',
+    imageUrl: '/images/lost_water_bottle_1790874018368.jpg',
     status: 'approved',
     reportedBy: JSON.stringify({
       id: 'usr_student_02',
@@ -96,7 +96,7 @@ const INITIAL_ITEMS = [
     description: 'Royal blue campus lanyard with clear plastic badge sleeve containing student ID and two brass dorm door keys attached to ring.',
     location: 'Science Block, Room 302',
     date: '2026-10-01',
-    imageUrl: '/src/assets/images/lost_student_id_keys_1790874036797.jpg',
+    imageUrl: '/images/lost_student_id_keys_1790874036797.jpg',
     status: 'approved',
     reportedBy: JSON.stringify({
       id: 'usr_staff_01',
@@ -114,7 +114,7 @@ const INITIAL_ITEMS = [
     description: 'Dark grey graphing calculator with sliding hard cover. Has a tiny white initials mark "S.V." on battery compartment cover.',
     location: 'Lecture Hall 101, Row 5',
     date: '2026-09-28',
-    imageUrl: '/src/assets/images/lost_graphing_calc_1790874049756.jpg',
+    imageUrl: '/images/lost_graphing_calc_1790874049756.jpg',
     status: 'approved',
     reportedBy: JSON.stringify({
       id: 'usr_student_01',
@@ -222,7 +222,7 @@ const INITIAL_ITEMS = [
     description: 'Grey zip-up hooded sweatshirt with university logo embroidered on chest. Found on chair in auditorium after guest lecture.',
     location: 'Main Administrative Building',
     date: '2026-09-30',
-    imageUrl: '/src/assets/images/campus_hoodie.png',
+    imageUrl: '/images/campus_hoodie.png',
     status: 'approved',
     reportedBy: JSON.stringify({
       id: 'usr_staff_03',
@@ -258,7 +258,7 @@ const INITIAL_ITEMS = [
     description: '6.8" E-reader with a black magnetic leather folding case. Found on bench outside Science Block.',
     location: 'Science Block, Room 302',
     date: '2026-09-29',
-    imageUrl: '/src/assets/images/kindle_ereader.png',
+    imageUrl: '/images/kindle_ereader.png',
     status: 'approved',
     reportedBy: JSON.stringify({
       id: 'usr_student_07',
@@ -276,7 +276,7 @@ const INITIAL_ITEMS = [
     description: 'Black electronic remote key fob with key blade folded out. Has a neon orange campus gym member tag attached.',
     location: 'East Campus Parking',
     date: '2026-09-30',
-    imageUrl: '/src/assets/images/car_key_fob.png',
+    imageUrl: '/images/car_key_fob.png',
     status: 'approved',
     reportedBy: JSON.stringify({
       id: 'usr_student_08',
