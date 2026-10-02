@@ -129,7 +129,9 @@ export const ItemDetailModal: React.FC = () => {
               <span className="font-medium text-slate-800 tabular-nums">{item.date}</span>
             </div>
             <div className="col-span-2 pt-2 border-t border-slate-100">
-              <span className="text-slate-400 block mb-0.5">Reported By</span>
+              <span className="text-slate-400 block mb-0.5">
+                {isLost ? '🙋 Lost By (Owner)' : '🔍 Found By'}
+              </span>
               <span className="font-medium text-slate-800">{item.reportedBy.name}</span>
               {item.reportedBy.department && (
                 <span className="text-slate-500 ml-1">({item.reportedBy.department})</span>
