@@ -5,8 +5,8 @@ import logoImg from '../assets/findback-logo.png';
 export const LoginPage: React.FC = () => {
   const { loginWithCredentials, setActiveTab } = useApp();
 
-  const [username, setUsername] = useState('student');
-  const [password, setPassword] = useState('student123');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
