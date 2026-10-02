@@ -15,7 +15,7 @@ export const INITIAL_USER: User = {
   department: 'Computer Science',
 };
 
-[
+export const INITIAL_ITEMS: LostFoundItem[] = [
   {
     id: 'item-101',
     title: '65W USB-C Laptop Charger',
