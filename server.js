@@ -50,8 +50,8 @@ db.exec(`
   );
 `);
 
-// Initial 15 Seed Items
-[
+// Initial Seed Items
+const INITIAL_ITEMS = [
   {
     id: 'item-101',
     title: '65W USB-C Laptop Charger',
