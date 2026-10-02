@@ -312,7 +312,7 @@ const INITIAL_ITEMS = [
     description: 'Matte black heavy duty portable power bank with dual USB output ports. Left plugged into charging station.',
     location: 'Student Center & Canteen',
     date: '2026-09-28',
-    imageUrl: 'https://images.unsplash.com/photo-1609592424109-dd9892f1b177?w=600&auto=format&fit=crop',
+    imageUrl: '/images/lost_laptop_charger_1790874005031.jpg',
     status: 'approved',
     reportedBy: JSON.stringify({
       id: 'usr_staff_04',
